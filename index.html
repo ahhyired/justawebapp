@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown to July 1st</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .countdown {
+            color: white;
+            font-size: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="countdown" id="countdown"></div>
+    <script>
+        const targetDate = new Date("2024-07-01T00:00:00"); // Set target date (July 1st, 2024)
+
+        const updateCountdown = () => {
+            const currentDate = new Date();
+            const timeToTarget = targetDate - currentDate;
+
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(timeToTarget / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeToTarget % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeToTarget % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeToTarget % (1000 * 60)) / 1000);
+
+            // Format time with leading zeros
+            const formattedDays = days.toString().padStart(2, '0');
+            const formattedHours = hours.toString().padStart(2, '0');
+            const formattedMinutes = minutes.toString().padStart(2, '0');
+            const formattedSeconds = seconds.toString().padStart(2, '0');
+
+            // Update the displayed countdown
+            document.getElementById('countdown').textContent = `${formattedDays}d ${formattedHours}h ${formattedMinutes}m ${formattedSeconds}s`;
+
+            // Call updateCountdown again every second
+            setTimeout(updateCountdown, 1000);
+        }
+
+        updateCountdown(); // Start the countdown
+    </script>
+</body>
+</html>
