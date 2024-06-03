@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown to July 1st</title>
+    <title>Welcome to justa a web space</title>
     <style>
         body {
             background-color: black;
@@ -32,26 +32,21 @@
             const currentDate = new Date();
             const timeToTarget = targetDate - currentDate;
 
-            // Calculate days, hours, minutes, and seconds
             const days = Math.floor(timeToTarget / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeToTarget % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((timeToTarget % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeToTarget % (1000 * 60)) / 1000);
 
-            // Format time with leading zeros
             const formattedDays = days.toString().padStart(2, '0');
             const formattedHours = hours.toString().padStart(2, '0');
             const formattedMinutes = minutes.toString().padStart(2, '0');
             const formattedSeconds = seconds.toString().padStart(2, '0');
 
-            // Update the displayed countdown
             document.getElementById('countdown').textContent = `${formattedDays}d ${formattedHours}h ${formattedMinutes}m ${formattedSeconds}s`;
-
-            // Call updateCountdown again every second
             setTimeout(updateCountdown, 1000);
         }
 
-        updateCountdown(); // Start the countdown
+        updateCountdown();
     </script>
 </body>
 </html>
